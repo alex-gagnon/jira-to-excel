@@ -22,7 +22,7 @@ class JiraProjectIssues(Config):
         options = {
             'server': self.server
         }
-        return JIRA(options, auth=(self.user, self.password))
+        return JIRA(options=options, auth=(self.user, self.password))
 
     def project_issues(self) -> list:
         jira = self.auth_jira()
