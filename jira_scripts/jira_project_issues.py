@@ -39,15 +39,17 @@ class JiraProjectIssues(Config):
                 for issues in list_issues.fields.fixVersions
                 if issues.name == self.fix_version]
 
-    @staticmethod
-    def detailed_filter_by_fix_version(issue_list) -> [dict]:
-        detailed_info = []
-        for issue in issue_list:
-            detailed_info.append({
-                'Jira Case': issue.key,
-                'Description': issue.fields.summary,
-                'Sprint': [i.replace('name=', '') for i in
-                           re.findall(r"name=[^,]*",
-                                      str(issue.fields.customfield_10000))]  # customfield must match element id in jira
-            })
+    def detailed_filter_by_fix_version(self, issue_list) -> [dict]:
+        detailed_info = [{
+            'Jira Case': issue.key,
+            'Description': issue.fields.summary,
+            'Sprint': self.get_sprint(issue=issue)
+        } for issue in issue_list]
+
         return detailed_info
+
+    @staticmethod
+    def get_sprint(issue):
+        return [issue_sprint.replace('name=', '')
+                # customfield must match element id in jira
+                for issue_sprint in re.findall(r"name=[^,]*", str(issue.fields.customfield_10000))]
