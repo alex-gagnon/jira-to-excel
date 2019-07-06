@@ -12,11 +12,17 @@ class JiraProjectIssues(Config):
         self.project = kwargs.get('project')
         self.fix_version = kwargs.get('fix_version')
 
+    def __call__(self, *args, **kwargs):
+        self.args = args
+        self.project = kwargs.get('project')
+        self.fix_version = kwargs.get('fix_version')
+        print(f'JiraProjectIssues Object values redefined... Project= {self.project}, Fix Version= {self.fix_version}')
+
     def __repr__(self):
-        return f'<Jira Scrape Object: project="{self.project}", fix_version="{self.fix_version}">'
+        return f'<JiraProjectIssues Object: project="{self.project}", fix_version="{self.fix_version}">'
 
     def __str__(self):
-        return f''
+        return f'Project "{self.project}", Fix Version "{self.fix_version}"'
 
     def auth_jira(self):
         options = {
