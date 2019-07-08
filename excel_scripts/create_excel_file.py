@@ -31,10 +31,13 @@ class CreateExcelFile:
         self.save_and_close()
 
     def write_data(self, data_list):
-        for dict_item in data_list:
-            for n, (k, v) in enumerate(dict_item.items()):
-                self.sheet.write(0, n * 2, k)
-                self.sheet.write(2, n * 2, v)
+        keys = []
+        for i, dict_item in enumerate(data_list):
+            for colx, (key, val) in enumerate(dict_item.items()):
+                if key not in keys:
+                    self.sheet.write(0, colx * 2, key)
+                keys.append(key)
+                self.sheet.write(i + 1 * 2, colx * 2, val)
 
     def save_and_close(self):
         file_path = os.path.expanduser(os.path.join('~', 'Desktop'))
