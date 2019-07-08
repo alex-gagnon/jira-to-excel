@@ -3,7 +3,7 @@ import pytest
 from jira_scripts.jira_project_issues import JiraProjectIssues
 
 project_and_fix_version = (
-    ("project1", "fix_version"),
+    ("TM", "10.4"),
 )
 
 
@@ -19,6 +19,8 @@ class TestJiraProjectIssues:
     def test_with_connection(self, project, fix_version):
         response = JiraProjectIssues(project=project, fix_version=fix_version)
         jira_cnx = response.auth_jira()
+        filtered = response.filter_by_fix_version()
         assert jira_cnx
         assert response.project_issues()
-        assert response.filter_by_fix_version()
+        assert filtered
+        assert response.detailed_filter_by_fix_version(filtered)
