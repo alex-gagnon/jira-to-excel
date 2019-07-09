@@ -1,8 +1,10 @@
-from excel_scripts.create_excel_file import CreateExcelFile
-from jira_scripts.jira_project_issues import JiraProjectIssues
+from scripts.excel_scripts.create_excel_file import CreateExcelFile
+from scripts.jira_scripts.jira_project_issues import JiraProjectIssues
 
 
-def write_jira_data(project, fix_version):
+def write_jira_data(*args, **kwargs):
+    project = kwargs.get('project')
+    fix_version = kwargs.get('fix_version')
     filename = f'{project} {fix_version}'
     excel = CreateExcelFile(filename=filename, sheetname=fix_version)
     init_jira = JiraProjectIssues(project=project, fix_version=fix_version)
