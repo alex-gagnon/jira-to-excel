@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 
 import xlwt as excel
 
@@ -41,5 +42,5 @@ class CreateExcelFile:
 
     def save_and_close(self):
         file_path = os.path.expanduser(os.path.join('~', 'Desktop'))
-        self.book.save(os.path.join(file_path, self.filename + '.xls'))
+        self.book.save(os.path.join(file_path, f'{self.filename}_{datetime.today().strftime("%Y_%m_%dT%H.%M.%S")}.xls'))
         print(f'Report finished. Excel file saved as "{self.filename}.xls"')
