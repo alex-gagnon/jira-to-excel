@@ -135,3 +135,5 @@ dmypy.json
 [Ss]cripts
 pip-selfcheck.json
 
+# .idea directory
+.idea
