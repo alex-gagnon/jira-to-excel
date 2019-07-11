@@ -7,13 +7,16 @@
 <body>
 {% if form %}
     <main>
-        <form action="">
+        <form action="" method="post">
             {{ form.hidden_tag() }}
             <div>
                 <h3>{{ form.project.label }}{{ form.project }}</h3>
             </div>
             <div>
                 <h3>{{ form.filter_by.label }}{{ form.filter_by }}</h3>
+            </div>
+            <div>
+                <h3>{{ form.fix_version.label }}{{ form.fix_version }}</h3>
             </div>
             <div>
                 <h3>

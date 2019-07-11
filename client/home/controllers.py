@@ -12,6 +12,7 @@ def write_jira_data(*args, **kwargs):
     fix_version_issues = init_jira.filter_by_fix_version()
     detailed_issues = init_jira.detailed_filter_by_fix_version(fix_version_issues)
     excel.create_excel_book(data_list=detailed_issues)
+    return {"Successful": 200}
 
 
 if __name__ == '__main__':
