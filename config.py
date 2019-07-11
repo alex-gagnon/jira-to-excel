@@ -11,7 +11,6 @@ finally:
     FILE_PATH = os.path.join(FILE_PATH, assets)
 
 
-
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'my_secret_key_here'
     DEBUG = True
