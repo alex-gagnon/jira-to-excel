@@ -1,6 +1,6 @@
 import pytest
 
-from jira_scripts.jira_project_issues import JiraProjectIssues
+from scripts.jira_scripts.jira_project_issues import JiraProjectIssues
 
 project_and_fix_version = (
     ("TM", "10.4"),
