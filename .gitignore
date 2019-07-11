@@ -137,3 +137,6 @@ pip-selfcheck.json
 
 # .idea directory
 .idea
+
+# ignore assets
+assets
