@@ -1,5 +1,5 @@
-from scripts.excel_scripts.create_excel_file import CreateExcelFile
-from scripts.jira_scripts.jira_project_issues import JiraProjectIssues
+from excel_scripts import CreateExcelFile
+from jira_scripts import JiraProjectIssues
 
 
 def write_jira_data(*args, **kwargs):

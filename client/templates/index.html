@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jira-to-Excel</title>
+</head>
+<body>
+{% if form %}
+    <main>
+        <form action="">
+            {{ form.hidden_tag() }}
+            <div>
+                <h3>{{ form.project.label }}{{ form.project }}</h3>
+            </div>
+            <div>
+                <h3>{{ form.filter_by.label }}{{ form.filter_by }}</h3>
+            </div>
+            <div>
+                <h3>
+                    {{ form.generate }}
+                </h3>
+            </div>
+        </form>
+    </main>
+{% endif %}
+</body>
+</html>
