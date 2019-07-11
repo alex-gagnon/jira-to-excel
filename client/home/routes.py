@@ -1,4 +1,4 @@
-from flask import render_template, request, jsonify
+from flask import render_template, request, send_from_directory
 
 from . import bp, forms, controllers
 
@@ -14,5 +14,5 @@ def index():
         project = request.form.get('project')
         fix_version = request.form.get('fix_version')
         response = controllers.write_jira_data(project=project, fix_version=fix_version)
-        return jsonify(response)
+        return send_from_directory(directory=response.get("directory"), filename=response.get("filename"))
     return render_template('index.html', form=form)

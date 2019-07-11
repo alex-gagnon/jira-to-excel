@@ -1,3 +1,4 @@
+from config import FILE_PATH
 from excel_scripts import CreateExcelFile
 from jira_scripts import JiraProjectIssues
 
@@ -12,7 +13,9 @@ def write_jira_data(*args, **kwargs):
     fix_version_issues = init_jira.filter_by_fix_version()
     detailed_issues = init_jira.detailed_filter_by_fix_version(fix_version_issues)
     excel.create_excel_book(data_list=detailed_issues)
-    return {"Successful": 200}
+    latest_file = excel.get_recent_file()
+    print(FILE_PATH)
+    return {"Successful": 200, "directory": FILE_PATH, "filename": latest_file}
 
 
 if __name__ == '__main__':

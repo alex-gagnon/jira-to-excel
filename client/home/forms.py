@@ -11,4 +11,4 @@ class Base(FlaskForm):
                             choices=[('fix_version', 'Fix Version')])
     fix_version = StringField(label='Fix version:',
                               validators=[validators.Optional()])
-    generate = SubmitField(label='GENERATE REPORT')
+    generate = SubmitField(label='DOWNLOAD REPORT')
