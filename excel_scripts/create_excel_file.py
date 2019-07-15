@@ -3,6 +3,8 @@ from datetime import datetime
 
 import xlwt as excel
 
+from config import PROJECT_PATH
+
 
 class CreateExcelFile:
     def __init__(self, *args, **kwargs):
@@ -41,6 +43,14 @@ class CreateExcelFile:
                 self.sheet.write(i + 1 * 2, colx * 2, val)
 
     def save_and_close(self):
-        file_path = os.path.expanduser(os.path.join('~', 'Desktop'))
-        self.book.save(os.path.join(file_path, f'{self.filename}_{datetime.today().strftime("%Y_%m_%dT%H.%M.%S")}.xls'))
-        print(f'Report finished. Excel file saved as "{self.filename}.xls"')
+        filename = f'{self.filename}_{datetime.today().strftime("%Y_%m_%dT%H.%M.%S")}.xls'
+        self.book.save(os.path.join(PROJECT_PATH, 'assets', filename))
+        print(f'Report finished. Excel file saved as "{filename}"')
+
+    @staticmethod
+    def get_recent_file():
+        import glob
+        assets = os.path.join(PROJECT_PATH, 'assets', '*.xls')
+        list_of_files = glob.glob(assets)
+        latest_file = max(list_of_files, key=os.path.getctime)
+        return os.path.basename(latest_file)
