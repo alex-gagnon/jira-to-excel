@@ -46,10 +46,12 @@ class JiraProjectIssues:
         return detailed_info
 
     def filter_by_latest_version_delivered(self, latest_version):
-        return [(list_issues, 'latest version= ' + list_issues.fields.customfield_10911)
+        return [{'Jira Case': list_issues.key,
+                 'Description': list_issues.fields.summary,
+                 'Latest Version': list_issues.fields.customfield_10911}
                 for list_issues in self.project_issues()
-                if list_issues.fields.customfield_10911 is not None and
-                re.findall(r"{0}(.*)".format(latest_version), list_issues.fields.customfield_10911)]
+                if list_issues.fields.customfield_10911 is not None
+                and re.findall(r"{0}(.*)".format(latest_version), list_issues.fields.customfield_10911)]
 
     @staticmethod
     def get_sprint(issue):
