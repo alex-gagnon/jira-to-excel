@@ -12,7 +12,9 @@ def index():
     form = forms.Base()
     if form.validate_on_submit():
         project = request.form.get('project')
-        fix_version = request.form.get('fix_version')
-        response = controllers.write_jira_data(project=project, fix_version=fix_version)
+        version = request.form.get('version')
+        filter_by = request.form.get('filter_by')
+
+        response = controllers.get_jira_data(project=project, version=version, filter_by=filter_by)
         return send_from_directory(directory=response.get("directory"), filename=response.get("filename"))
     return render_template('index.html', form=form)
