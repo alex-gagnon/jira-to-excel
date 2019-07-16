@@ -4,8 +4,12 @@ from wtforms.fields import StringField, SelectField, SubmitField
 
 
 class Base(FlaskForm):
-    project = StringField(label='Project:',
-                          validators=[validators.DataRequired()])
+    project = SelectField(label='Project:',
+                          validators=[validators.DataRequired()],
+                          choices=[('TM', 'Title Management'),
+                                   ('TMT', 'Title Management Training'),
+                                   ('REL', 'Release'),
+                                   ('CUST', 'Customers')])
     filter_by = SelectField(label='Filter by:',
                             validators=[validators.DataRequired()],
                             choices=[('fix_version', 'Fix Version')])
