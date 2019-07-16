@@ -1,6 +1,5 @@
 from config import FILE_PATH, Config
-from excel_scripts import CreateExcelFile
-from jira_scripts import JiraProjectIssues
+from services import CreateExcelFile, JiraProjectIssues
 
 
 def write_jira_data(*args, **kwargs):
@@ -12,9 +11,8 @@ def write_jira_data(*args, **kwargs):
     init_jira = JiraProjectIssues(url=Config.server,
                                   username=Config.user,
                                   password=Config.password,
-                                  project=project,
-                                  fix_version=fix_version)
-    fix_version_issues = init_jira.filter_by_fix_version()
+                                  project=project)
+    fix_version_issues = init_jira.filter_by_fix_version(fix_version=fix_version)
     detailed_issues = init_jira.detailed_filter_by_fix_version(fix_version_issues)
     excel.create_excel_book(data_list=detailed_issues)
     latest_file = excel.get_recent_file()
