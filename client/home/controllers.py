@@ -41,9 +41,3 @@ def by_fix_version(j, version):
 
 def by_latest_version(j, version):
     return j.filter_by_latest_version_delivered(latest_version=version)
-
-
-if __name__ == '__main__':
-    p = 'TM'
-    f = '10.4'
-    get_jira_data(project=p, fix_version=f)
