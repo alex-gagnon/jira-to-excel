@@ -1,6 +1,6 @@
 import pytest
 
-from scripts.excel_scripts.create_excel_file import CreateExcelFile
+from services import CreateExcelFile
 
 args = (
     ("TM", "10.4", [{'Col 1': 'data 1', 'Col 2': "data 2", 'Col 3': "data 3"},
