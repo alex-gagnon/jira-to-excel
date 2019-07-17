@@ -1,0 +1,29 @@
+.container {
+    padding: 10px;
+    height: 100vh;
+}
+
+.card-outer {
+    border: 2px outset black;
+    background: #444;
+}
+
+.jxl-section {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+}
+
+.font-etch {
+    font-size: 2rem;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: rgba(255, 255, 255, 0.5) 0 2px 0;
+    margin-bottom: 5px;
+
+}
+
+.dropbox * {
+    font-size: 1rem;
+}

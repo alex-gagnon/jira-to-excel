@@ -2,27 +2,41 @@
 {% block app_scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../static/dynaScript.js"></script>
+    <link rel="stylesheet" href="../static/style.css">
 {% endblock %}
 {% block app_content %}
     {% if form %}
-        <main>
-            <form action="" method="post">
-                {{ form.hidden_tag() }}
-                <div>
-                    <h3>{{ form.project.label }}{{ form.project }}</h3>
+        <main class="container">
+            <div class="card-outer">
+                <div class="card-inner">
+                    <form action="" method="post">
+                        {{ form.hidden_tag() }}
+                        <section class="jxl-section">
+                            <div>
+                                <h3 class="font-etch">{{ form.project.label }}</h3>
+                                <span class="dropbox">{{ form.project }}</span>
+                            </div>
+                        </section>
+                        <section class="jxl-section">
+                            <div>
+                                <h3 class="font-etch">{{ form.filter_by.label }}</h3>
+                                <span class="dropbox">{{ form.filter_by }}</span>
+                            </div>
+                        </section>
+                        <section class="jxl-section">
+                            <div>
+                                <h3 class="font-etch">{{ form.version.label }}</h3>
+                                <span class="dropbox">{{ form.version }}</span>
+                            </div>
+                        </section>
+                        <section class="jxl-section">
+                            <div>
+                                {{ form.generate }}
+                            </div>
+                        </section>
+                    </form>
                 </div>
-                <div>
-                    <h3>{{ form.filter_by.label }}{{ form.filter_by }}</h3>
-                </div>
-                <div>
-                    <h3>{{ form.version.label }}{{ form.version }}</h3>
-                </div>
-                <div>
-                    <h3>
-                        {{ form.generate }}
-                    </h3>
-                </div>
-            </form>
+            </div>
         </main>
     {% endif %}
 {% endblock %}
