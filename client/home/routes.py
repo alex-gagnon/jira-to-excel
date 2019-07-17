@@ -15,6 +15,11 @@ def index():
         version = request.form.get('version')
         filter_by = request.form.get('filter_by')
 
-        response = controllers.get_jira_data(project=project, version=version, filter_by=filter_by)
-        return send_from_directory(directory=response.get("directory"), filename=response.get("filename"))
-    return render_template('index.html', form=form)
+        response = controllers.get_jira_data(project=project,
+                                             version=version,
+                                             filter_by=filter_by)
+        return send_from_directory(directory=response.get("directory"),
+                                   filename=response.get("filename"),
+                                   as_attachment=True)
+    return render_template(template_name_or_list='index.html',
+                           form=form)
