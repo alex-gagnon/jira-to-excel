@@ -42,4 +42,5 @@ class TestJiraProjectIssues:
                                      password=Config.password,
                                      project=project)
         filtered = response.filter_by_latest_version_delivered(latest_version=latest_version)
-        print(filtered)
+        assert filtered
+        assert isinstance(filtered, list)
