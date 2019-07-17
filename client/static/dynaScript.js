@@ -16,4 +16,6 @@ $(document).ready(() => {
     $('#project').on('change', () => {
         dynaFilters();
     });
+
+    dynaFilters();
 });
