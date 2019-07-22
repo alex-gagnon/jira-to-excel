@@ -2,6 +2,12 @@ body {
     background-color: floralwhite;
 }
 
+h1, h2 {
+    text-align: center;
+    color: #EDBB99;
+    text-shadow: rgba(0, 0, 0, 0.5) -1px -1px 0;
+}
+
 .container {
     padding: 10px;
     min-height: 100vh;

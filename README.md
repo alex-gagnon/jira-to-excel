@@ -1,12 +1,8 @@
 # Overview
-* This project is for scraping jira projects and outputting results
-to an Excel file.
+* Exports project issues filtered by versions to an Excel spreadsheet.
 
 ## Instructions
 * Clone repository
-* Create a .env file or add environment variables
-* Environment variables should be
-  * JIRA_USER
-  * JIRA_PASSWORD
-  * JIRA_SERVER
-* Run ```run.py``` with .env file
+* Set environment variables for ```config.py```
+* Run ```app.py``` with .env file
+* Open browser to https://0.0.0.0:3000/
