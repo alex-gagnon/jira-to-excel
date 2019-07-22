@@ -1,11 +1,16 @@
 .container {
     padding: 10px;
     height: 100vh;
+    display: flex;
+    justify-content: center;
 }
 
 .card-outer {
-    border: 2px outset black;
-    background: #444;
+    background: linear-gradient(95deg, #afeeee, #ffb0aa);
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.5) -2px 5px 12px;
+    height: 100vh;
+    width: 50vw;
 }
 
 .jxl-section {
@@ -18,12 +23,16 @@
 .font-etch {
     font-size: 2rem;
     -webkit-background-clip: text;
-    color: transparent;
-    text-shadow: rgba(255, 255, 255, 0.5) 0 2px 0;
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.5) -3px 2px 0;
     margin-bottom: 5px;
 
 }
 
 .dropbox * {
     font-size: 1rem;
+}
+
+footer {
+    text-align: center;
 }
