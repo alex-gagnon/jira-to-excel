@@ -4,7 +4,7 @@ body {
 
 h1, h2 {
     text-align: center;
-    color: #EDBB99;
+    color: #edbb99;
     text-shadow: rgba(0, 0, 0, 0.5) -1px -1px 0;
 }
 
@@ -30,6 +30,7 @@ h1, h2 {
     margin: 5px;
 }
 
+/* Font shadows for white text */
 .font-shadow {
     font-size: 2rem;
     -webkit-background-clip: text;
@@ -39,6 +40,7 @@ h1, h2 {
 
 }
 
+/* Font etching for light background*/
 .font-etch {
     font-size: 1.2rem;
     -webkit-background-clip: text;
@@ -50,10 +52,24 @@ h1, h2 {
     font-size: 1rem;
 }
 
-.gen-btn * {
+#generate {
+    background: paleturquoise;
+    border: 2px outset turquoise;
+    cursor: pointer;
+    border-radius: 30px;
     margin-top: 25px;
     margin-bottom: 25px;
     padding: 15px;
+}
+
+/* Custom Download Button */
+#generate:hover, #generate:focus {
+    background: #85c1e9;
+}
+
+#generate:active {
+    border: 2px inset turquoise;
+    background: #aed6f1;
 }
 
 footer {
