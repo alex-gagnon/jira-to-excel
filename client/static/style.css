@@ -1,16 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two&display=swap');
+
 body {
     background-color: floralwhite;
+    font-family: 'Lobster Two', cursive, sans-serif;
+    letter-spacing: 1px;
+    font-size: 18px;
 }
 
-h1, h2 {
+h1, h2, footer {
     text-align: center;
     color: #edbb99;
-    text-shadow: rgba(0, 0, 0, 0.5) -1px -1px 0;
+}
+
+h3 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 5px;
 }
 
 .container {
     padding: 10px;
-    min-height: 100vh;
+    max-height: 100vh;
     display: flex;
     justify-content: center;
 }
@@ -30,35 +40,30 @@ h1, h2 {
     margin: 5px;
 }
 
-/* Font shadows for white text */
-.font-shadow {
-    font-size: 2rem;
+.shadow-inset {
     -webkit-background-clip: text;
-    color: white;
-    text-shadow: rgba(0, 0, 0, 0.5) -1px -1px 0;
-    margin-bottom: 5px;
-
-}
-
-/* Font etching for light background*/
-.font-etch {
-    font-size: 1.2rem;
-    -webkit-background-clip: text;
-    text-shadow: rgba(0, 0, 0, 0.7) 0 1px 0;
+    text-shadow: rgba(0, 0, 0, 0.66) -1px -1px 0;
 }
 
 .dropbox * {
+    border-radius: 5px;
+    padding: auto 20px;
     font-size: 1rem;
 }
 
 #generate {
-    background: paleturquoise;
+    background: #add8e6;
     border: 2px outset turquoise;
     cursor: pointer;
     border-radius: 30px;
     margin-top: 25px;
     margin-bottom: 25px;
     padding: 15px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Lobster Two', cursive;
+    text-shadow: rgba(0, 0, 0, 0.66) -1px 1px 0;
 }
 
 /* Custom Download Button */
@@ -68,10 +73,5 @@ h1, h2 {
 
 #generate:active {
     border: 2px inset turquoise;
-    background: #aed6f1;
-}
-
-footer {
-    text-align: center;
-    color: #edbb99;
+    background: #add8e6;
 }

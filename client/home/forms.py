@@ -14,4 +14,4 @@ class Base(FlaskForm):
                                      ('latest_version', 'Latest Version')])
     version = StringField(label='Version',
                           validators=[validators.Optional()])
-    generate = SubmitField(label='DOWNLOAD REPORT')
+    generate = SubmitField(label='Download Report')
