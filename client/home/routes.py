@@ -1,4 +1,5 @@
-from flask import render_template, request, send_from_directory
+from flask import render_template, request, send_from_directory, redirect, url_for
+from flask_login import login_required
 
 from . import bp, forms, controllers
 
@@ -7,8 +8,13 @@ methods = ['GET', 'POST']
 
 @bp.route('/', methods=methods)
 @bp.route('/index', methods=methods)
-@bp.route('/home', methods=methods)
 def index():
+    return redirect(url_for('auth.login'))
+
+
+@bp.route('/jxl', methods=methods)
+@login_required
+def jxl():
     form = forms.Base()
     if form.validate_on_submit():
         project = request.form.get('project')

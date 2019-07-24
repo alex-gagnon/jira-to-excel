@@ -38,7 +38,6 @@ h3, h4 {
 .jxl-section {
     display: flex;
     justify-content: center;
-    text-align: center;
     margin: 5px;
 }
 
@@ -48,6 +47,7 @@ h3, h4 {
 }
 
 .dropbox * {
+    min-width: 235px;
     border-radius: 5px;
     padding: auto 20px;
     font-size: 1rem;
@@ -87,6 +87,11 @@ h3, h4 {
 #generate:active, #login:active {
     border: 2px inset turquoise;
     background: #add8e6;
+}
+
+/* Flash messages */
+.notification {
+    text-align: center;
 }
 
 .danger {

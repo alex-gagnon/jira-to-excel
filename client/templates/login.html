@@ -29,6 +29,13 @@
                                 <div class="control">
                                     <h4 class="shadow-inset">{{ form.username.label }}</h4>
                                     <span>{{ form.username }}</span>
+                                    {% with messages = get_flashed_messages() %}
+                                        {% if messages %}
+                                            <div class="notification">
+                                                <span class="danger">{{ messages[0] }}.</span>
+                                            </div>
+                                        {% endif %}
+                                    {% endwith %}
                                 </div>
                             </section>
                             <section class="field">

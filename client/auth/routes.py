@@ -1,19 +1,34 @@
 from flask import render_template, request, url_for, redirect, flash
-from werkzeug.security import generate_password_hash
+from flask_login import login_user, login_required, logout_user
+from werkzeug.security import generate_password_hash, check_password_hash
 
 from client import db
 from client.models import User
 from . import bp, forms
 
 
-@bp.route('/login', methods=('GET', 'POST'))
+@bp.route('/login')
 def login():
     form = forms.Auth()
-    if form.validate_on_submit():
-        pass
     return render_template(template_name_or_list='login.html',
                            form=form,
                            title='Login')
+
+
+@bp.route('/login', methods=['POST'])
+def login_post():
+    username = request.form.get('username')
+    password = request.form.get('password')
+    remember = True if request.form.get('remember') else False
+
+    user = User.query.filter_by(username=username).first()
+
+    if not user or not check_password_hash(user.password, password):
+        flash('Invalid username/password')
+        return redirect(url_for('auth.login'))
+
+    login_user(user, remember=remember)
+    return redirect(url_for('home.jxl'))
 
 
 @bp.route('/signup')
@@ -44,5 +59,7 @@ def signup_post():
 
 
 @bp.route('/logout')
+@login_required
 def logout():
-    return 'Logout'
+    logout_user()
+    return redirect(url_for('auth.login'))
