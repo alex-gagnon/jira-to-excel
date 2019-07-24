@@ -140,3 +140,6 @@ pip-selfcheck.json
 
 # ignore assets
 assets
+
+#ignore databases
+*.db

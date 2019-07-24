@@ -20,9 +20,10 @@ def create_app():
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
 
-    nav.register_element('top', Navbar(
-        View('Login', 'auth.login'),
-    ))
+    navbar = Navbar('', View('Login', 'auth.login'))
+    secnavbar = Navbar('', View('Logout', 'auth.logout'))
+    nav.register_element('navbar', navbar)
+    nav.register_element('secnavbar', secnavbar)
 
     nav.init_app(app)
 

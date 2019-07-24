@@ -18,6 +18,30 @@ h3, h4 {
     margin-bottom: 5px;
 }
 
+/* Navigation Items */
+.navbar ul {
+    list-style: none;
+}
+
+.navbar ul li a {
+    border: 2px outset whitesmoke;
+    border-radius: 30px;
+    background-color: #edbb99;
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.66) -1px -1px 0;
+    font-size: 1.4rem;
+    padding: 15px;
+}
+
+.navbar ul li a:hover, .navbar ul li a:focus {
+    background-color: #ffb0aa;
+}
+
+.navbar ul li a:active {
+    border: 2px inset whitesmoke;
+    background-color: #edbb99;
+}
+
 .container {
     padding: 10px;
     display: flex;
