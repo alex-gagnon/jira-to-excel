@@ -9,7 +9,11 @@
     {% block app_scripts %}{% endblock %}
 </head>
 <body>
-{{ nav.top.render() }}
+{% if current_user.is_authenticated %}
+    {{ nav.secnavbar.render() }}
+{% else %}
+    {{ nav.navbar.render() }}
+{% endif %}
 {% block app_header %}{% endblock %}
 {% block app_content %}{% endblock %}
 <footer>
