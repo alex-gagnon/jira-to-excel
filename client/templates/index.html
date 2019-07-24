@@ -1,42 +1,57 @@
 {% extends 'base.html' %}
-{% block app_scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="../static/dynaScript.js"></script>
-    <link rel="stylesheet" href="../static/style.css">
+
+{% block app_header %}
+    <header>
+        <div>
+            <h1>
+                <span>Jira to Excel</span>
+            </h1>
+            <h2>
+                <span>Exports project issues filtered by versions to an Excel spreadsheet.</span>
+            </h2>
+        </div>
+    </header>
 {% endblock %}
 {% block app_content %}
-    {% if form %}
-        <main class="container">
-            <div class="card-outer">
-                <div class="card-inner">
-                    <form action="" method="post">
-                        {{ form.hidden_tag() }}
-                        <section class="jxl-section">
-                            <div>
-                                <h3 class="shadow-inset">{{ form.project.label }}</h3>
-                                <span class="dropbox">{{ form.project }}</span>
-                            </div>
-                        </section>
-                        <section class="jxl-section">
-                            <div>
-                                <h3 class="shadow-inset">{{ form.filter_by.label }}</h3>
-                                <span class="dropbox">{{ form.filter_by }}</span>
-                            </div>
-                        </section>
-                        <section class="jxl-section">
-                            <div>
-                                <h3 class="shadow-inset">{{ form.version.label }}</h3>
-                                <span class="dropbox">{{ form.version }}</span>
-                            </div>
-                        </section>
-                        <section class="jxl-section">
-                            <div>
-                                <span class="shadow-inset">{{ form.generate }}</span>
-                            </div>
-                        </section>
-                    </form>
+    <main class="container">
+        <div class="card-outer">
+            <div class="card-inner">
+                <div class="jxl-header">
+                    <h3>
+                        <span class="shadow-inset">{{ title }}</span>
+                    </h3>
+                </div>
+                <div class="block">
+                    {% if form %}
+                        <form action="" method="post">
+                            {{ form.hidden_tag() }}
+                            <section class="jxl-section">
+                                <div>
+                                    <h4 class="shadow-inset">{{ form.project.label }}</h4>
+                                    <span class="dropbox">{{ form.project }}</span>
+                                </div>
+                            </section>
+                            <section class="jxl-section">
+                                <div>
+                                    <h4 class="shadow-inset">{{ form.filter_by.label }}</h4>
+                                    <span class="dropbox">{{ form.filter_by }}</span>
+                                </div>
+                            </section>
+                            <section class="jxl-section">
+                                <div>
+                                    <h4 class="shadow-inset">{{ form.version.label }}</h4>
+                                    <span class="dropbox">{{ form.version }}</span>
+                                </div>
+                            </section>
+                            <section class="jxl-section">
+                                <div>
+                                    <span class="shadow-inset">{{ form.generate }}</span>
+                                </div>
+                            </section>
+                        </form>
+                    {% endif %}
                 </div>
             </div>
-        </main>
-    {% endif %}
+        </div>
+    </main>
 {% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block app_header %}
+    <header>
+        <div>
+            <h1>
+                <span>Jira to Excel</span>
+            </h1>
+            <h2>
+                <span>Sign up</span>
+            </h2>
+        </div>
+    </header>
+{% endblock %}
+{% block app_content %}
+    <main class="container">
+        <div class="card-outer">
+            <div class="card-inner">
+                <div class="jxl-header">
+                    <h3>
+                        <span class="shadow-inset">{{ title }}</span>
+                    </h3>
+                </div>
+                <div class="block">
+                    {% if form %}
+                        <form action="{{ url_for('auth.signup') }}" method="post">
+                            {{ form.hidden_tag() }}
+                            <section class="field">
+                                <div class="control">
+                                    <h4 class="shadow-inset">{{ form.username.label }}</h4>
+                                    <span>{{ form.username }}</span>
+                                    {% with messages = get_flashed_messages() %}
+                                        {% if messages %}
+                                            <div class="notification ">
+                                                <span class="danger">{{ messages[0] }}.</span>
+                                            </div>
+                                        {% endif %}
+                                    {% endwith %}
+                                </div>
+                            </section>
+                            <section class="field">
+                                <div class="control">
+                                    <h4 class="shadow-inset">{{ form.password.label }}</h4>
+                                    <span>{{ form.password }}</span>
+                                </div>
+                            </section>
+                            <section class="field">
+                                <div class="control">
+                                    {{ form.remember }}
+                                    <span>{{ form.remember.label }}</span>
+                                </div>
+                            </section>
+                            <section class="jxl-section">
+                                <div>
+                                    <span class="shadow-inset">{{ form.signup }}</span>
+                                </div>
+                            </section>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

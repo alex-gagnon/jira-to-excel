@@ -13,7 +13,8 @@ finally:
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'my_secret_key_here'
-    DEBUG = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///database.db'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     user = os.environ.get('JIRA_USER')
     password = os.environ.get('JIRA_PASSWORD')

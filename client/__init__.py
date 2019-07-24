@@ -1,11 +1,39 @@
 from flask import Flask
+from flask_login import LoginManager
+from flask_nav import Nav
+from flask_nav.elements import *
+from flask_sqlalchemy import SQLAlchemy
 
 from config import Config
+
+db = SQLAlchemy()
+nav = Nav()
 
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
+
+    db.init_app(app)
+
+    login_manager = LoginManager()
+    login_manager.login_view = 'auth.login'
+    login_manager.init_app(app)
+
+    nav.register_element('top', Navbar(
+        View('Login', 'auth.login'),
+    ))
+
+    nav.init_app(app)
+
+    from .models import User
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(int(user_id))
+
+    from client.auth import bp as auth_bp
+    app.register_blueprint(auth_bp)
 
     from client.errors import bp as error_bp
     app.register_blueprint(error_bp)
