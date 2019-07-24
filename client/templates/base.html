@@ -3,19 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Jira-to-Excel</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../static/dynaScript.js"></script>
+    <link rel="stylesheet" href="../static/style.css">
     {% block app_scripts %}{% endblock %}
 </head>
 <body>
-<header>
-    <div>
-        <h1>
-            <span>Jira to Excel</span>
-        </h1>
-        <h2>
-            <span>Exports project issues filtered by versions to an Excel spreadsheet.</span>
-        </h2>
-    </div>
-</header>
+{% block app_header %}{% endblock %}
 {% block app_content %}{% endblock %}
 <footer>
     <div>

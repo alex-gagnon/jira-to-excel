@@ -22,4 +22,5 @@ def index():
                                    filename=response.get("filename"),
                                    as_attachment=True)
     return render_template(template_name_or_list='index.html',
+                           title='JXL',
                            form=form)

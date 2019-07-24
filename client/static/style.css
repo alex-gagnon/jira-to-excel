@@ -12,7 +12,7 @@ h1, h2, footer {
     color: #edbb99;
 }
 
-h3 {
+h3, h4 {
     font-size: 2rem;
     color: white;
     margin-bottom: 5px;
@@ -20,7 +20,6 @@ h3 {
 
 .container {
     padding: 10px;
-    max-height: 100vh;
     display: flex;
     justify-content: center;
 }
@@ -29,8 +28,11 @@ h3 {
     background: linear-gradient(115deg, #afeeee, #ffb0aa 75%);
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.5) -2px 5px 12px;
-    max-height: 500px;
     width: 50vw;
+}
+
+.jxl-header {
+    padding-left: 20px;
 }
 
 .jxl-section {
@@ -51,7 +53,18 @@ h3 {
     font-size: 1rem;
 }
 
-#generate {
+/* Login fields */
+.field {
+    display: flex;
+    justify-content: center;
+}
+
+.control {
+    color: white;
+}
+
+/* Custom Download Button */
+#generate, #login {
     background: #add8e6;
     border: 2px outset turquoise;
     cursor: pointer;
@@ -66,12 +79,16 @@ h3 {
     text-shadow: rgba(0, 0, 0, 0.66) -1px 1px 0;
 }
 
-/* Custom Download Button */
-#generate:hover, #generate:focus {
+#generate:hover, #generate:focus,
+#login:hover, #login:focus {
     background: #85c1e9;
 }
 
-#generate:active {
+#generate:active, #login:active {
     border: 2px inset turquoise;
     background: #add8e6;
+}
+
+.danger {
+    color: red;
 }
