@@ -23,7 +23,7 @@
                 </div>
                 <div class="block">
                     {% if form %}
-                        <form action="{{ url_for('auth.signup') }}" method="post">
+                        <form action="/auth/signup" method="post">
                             {{ form.hidden_tag() }}
                             <section class="field">
                                 <div class="control">

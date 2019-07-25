@@ -34,12 +34,12 @@ def login_post():
 this route should not be enabled."""
 
 
-# @bp.route('/signup')
-# def signup():
-#     form = forms.Auth()
-#     return render_template(template_name_or_list='signup.html',
-#                            form=form,
-#                            title='Signup')
+@bp.route('/signup')
+def signup():
+    form = forms.Auth()
+    return render_template(template_name_or_list='signup.html',
+                           form=form,
+                           title='Signup')
 #
 #
 # @bp.route('/signup', methods=['POST'])
