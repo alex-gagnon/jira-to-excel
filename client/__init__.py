@@ -1,5 +1,8 @@
+from builtins import int
+
 from flask import Flask
 from flask_login import LoginManager
+from flask_migrate import Migrate
 from flask_nav import Nav
 from flask_nav.elements import *
 from flask_sqlalchemy import SQLAlchemy
@@ -7,6 +10,7 @@ from flask_sqlalchemy import SQLAlchemy
 from config import Config
 
 db = SQLAlchemy()
+migrate = Migrate()
 nav = Nav()
 
 
@@ -15,6 +19,7 @@ def create_app():
     app.config.from_object(Config)
 
     db.init_app(app)
+    migrate.init_app(app, db)
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'

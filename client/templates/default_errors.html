@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block app_header %}
+    <header>
+        <div>
+            <h1>
+                <span>Jira to Excel</span>
+            </h1>
+            <h2>
+                <span>Error</span>
+            </h2>
+        </div>
+    </header>
+{% endblock %}
+{% block app_content %}
+    <main class="container">
+        <div class="card-outer">
+            <div class="card-inner">
+                <div class="jxl-header">
+                    <h3>
+                        <span class="shadow-inset">{{ title }}</span>
+                    </h3>
+                </div>
+                <div class="block">
+                    <section>
+                        <p class="error danger">
+                            {{ error }}
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
