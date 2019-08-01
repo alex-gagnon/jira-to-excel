@@ -9,11 +9,10 @@ methods = ['GET', 'POST']
 @bp.route('/', methods=methods)
 @bp.route('/index', methods=methods)
 def index():
-    return redirect(url_for('auth.login'))
+    return redirect(url_for('home.jxl'))
 
 
 @bp.route('/jxl', methods=methods)
-@login_required
 def jxl():
     form = forms.Base()
     if form.validate_on_submit():
